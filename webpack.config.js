@@ -15,7 +15,6 @@ const providerPlugin = new webpack.ProvidePlugin({
 const cleanWebPackPlugin = new CleanWebpackPlugin([path.resolve(__dirname, 'dist')])
 
 const entryConfig = {
-  // vendor: ['jquery', 'imagesloaded', 'jquery-bridget', 'masonry-layout', 'ramda', 'validate.js', 'cleave.js', 'slick-carousel'],
   vendor: ['jquery', 'ramda'],
   main: [
     path.resolve(__dirname, 'app/js/main.js'),
@@ -25,8 +24,8 @@ const entryConfig = {
 
 const outputConfig = {
   path: path.resolve(__dirname, 'dist'),
-  filename: 'bundle.[name].[chunkhash].js'
-  // filename: '[name].js'
+  filename: '[name].js'
+  // filename: 'bundle.[name].[chunkhash].js'
   // filename: '[name].[chunkhash].js'
 }
 
@@ -124,7 +123,7 @@ module.exports = {
 
   target: "web",
 
-  devtool: "cheap-module-eval-source-map",
+  devtool: "source-map",
 
   module: {
     rules: [
@@ -145,16 +144,15 @@ module.exports = {
     cleanWebPackPlugin,
 
     new MiniCssExtractPlugin({
-      // filename: "main.[contenthash].css"
       filename: "main.css"
+      // filename: "main.[contenthash].css"
     }),
 
     new HtmlWebPackPlugin({
       favicon: 'app/favicon.png',
       // hash: true,
       template: './app/index.html',
-      // filename: 'index.html',
-      chunk: ['index']
+      filename: 'index.html',
     }),
 
     new WebpackMd5Hash()
