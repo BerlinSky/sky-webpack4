@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
+// const nodeExternals = require('webpack-node-externals');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -12,10 +12,11 @@ const providerPlugin = new webpack.ProvidePlugin({
   jQuery: 'jquery'
 })
 
-const cleanWebPackPlugin = new CleanWebpackPlugin([path.resolve(__dirname, '..', 'public', 'dist')])
+const cleanWebPackPlugin = new CleanWebpackPlugin([path.resolve(__dirname, 'dist')])
 
 const entryConfig = {
-  vendor: ['jquery', 'imagesloaded', 'jquery-bridget', 'masonry-layout', 'ramda', 'validate.js', 'cleave.js', 'slick-carousel'],
+  // vendor: ['jquery', 'imagesloaded', 'jquery-bridget', 'masonry-layout', 'ramda', 'validate.js', 'cleave.js', 'slick-carousel'],
+  vendor: ['jquery', 'ramda'],
   main: [
     path.resolve(__dirname, 'app/js/main.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
@@ -24,7 +25,8 @@ const entryConfig = {
 
 const outputConfig = {
   path: path.resolve(__dirname, 'dist'),
-  filename: '[name].js'
+  filename: 'bundle.[name].[chunkhash].js'
+  // filename: '[name].js'
   // filename: '[name].[chunkhash].js'
 }
 
@@ -45,7 +47,7 @@ const sassRules = {
   test: /\.scss$/,
   exclude: /node_modules/,
   use: [
-    MiniCssExtractPlugin.loader, 
+    MiniCssExtractPlugin.loader,
     {
       loader: "css-loader",
       options: {
@@ -67,16 +69,22 @@ const sassRules = {
   ]
 }
 
+const htmlRules = {
+  test: /\.html$/,
+  exclude: /node_modules/,
+  use: ['html-loader']
+}
+
 const fontRules = {
   test: /\.(ttf|otf|eot|svg|woff2|woff(2)?)(\?[a-z0-9]+)?$/,
   exclude: '/app/images/',
   use: [
-    { 
+    {
       loader: 'file-loader',
       options: {
           name: '[name].[ext]',
           outputPath: 'fonts/'
-        } 
+        }
     }
   ]
 }
@@ -114,14 +122,15 @@ module.exports = {
 
   optimization: optimization,
 
-  target: "web", 
+  target: "web",
 
-  devtool: "source-map",
+  devtool: "cheap-module-eval-source-map",
 
   module: {
     rules: [
       jsRules,
       sassRules,
+      htmlRules,
       fontRules,
       imageRules
     ]
@@ -139,12 +148,13 @@ module.exports = {
       // filename: "main.[contenthash].css"
       filename: "main.css"
     }),
-  
+
     new HtmlWebPackPlugin({
-      inject: false,
-      hash: true,
+      favicon: 'app/favicon.png',
+      // hash: true,
       template: './app/index.html',
-      filename: 'index.html'
+      // filename: 'index.html',
+      chunk: ['index']
     }),
 
     new WebpackMd5Hash()
@@ -152,12 +162,12 @@ module.exports = {
 
   watch: true,
 
-  
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     // compress: true,
+    host: 'localhost',
     port: 9090,
-    openPage: 'index.html',
+    // openPage: 'index.html',
     open: 'Google Chrome',
     watchContentBase: true,
     // writeToDisk: true

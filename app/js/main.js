@@ -154,21 +154,4 @@ $(function () {
 	    input.addClass('js-userData');
 	  }
 	});
-
-	$(".js-selectCountry").select2({ width: '100%' });
-
-	$(".js-selectState").select2({ width: '100%' });
-
-	$('b[role="presentation"]').hide();
-
-	$(".js-selectItemSize").select2({
-		minimumResultsForSearch: Infinity
-	});
 });
-
-
-
-
-
-
-
