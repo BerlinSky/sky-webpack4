@@ -1,5 +1,4 @@
 import { sum, mul, sub, div  } from './math';
-// const { sum, mul, sub, div } = require('./math')
 
 describe('first set', () => {
   beforeAll(() => {
@@ -33,6 +32,7 @@ describe('first set', () => {
   test('Dividing 1 / 1 equals 1', () => {
     expect(div(1, 1)).toBe(1)
   })
+
 })
 
 

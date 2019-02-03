@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --progress",
     "dev": "webpack --mode development",
-    "test": "jest",
+    "test": "jest --coverage",
     "dev:watch": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
@@ -44,5 +44,11 @@
   },
   "dependencies": {
     "jquery": "^3.2.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "./app/js/*.js"
+    ]
   }
 }
