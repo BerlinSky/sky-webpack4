@@ -6,3 +6,4 @@ test(`uppercase 'test to equal 'TEST'`, (done) => {
     done();
   })
 });
+
