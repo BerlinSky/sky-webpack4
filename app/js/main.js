@@ -6,4 +6,7 @@ $(function () {
 
   console.log("landing...");
 
+  const v = "Keine Ahnung!"
+  console.log("landing...", v);
+
 });

@@ -48,7 +48,15 @@
   "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
-      "./app/js/*.js"
-    ]
+      "./app/js/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 50,
+        "lines": 33,
+        "statements": 25
+      }
+    }
   }
 }
