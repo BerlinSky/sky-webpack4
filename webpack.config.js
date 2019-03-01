@@ -42,6 +42,21 @@ const jsRules = {
   ]
 }
 
+const jsonRules = {
+  test: /\.json$/,
+  type: "javascript/auto",
+  exclude: /node_modules/,
+  use: [
+    {
+      // loader: 'json-loader'
+      loader: 'file-loader',
+      options: {
+        name: "./[name].[ext]"
+      }
+    }
+  ]
+}
+
 const sassRules = {
   test: /\.scss$/,
   exclude: /node_modules/,
@@ -128,6 +143,7 @@ module.exports = {
   module: {
     rules: [
       jsRules,
+      jsonRules,
       sassRules,
       htmlRules,
       fontRules,
