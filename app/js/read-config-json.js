@@ -1,3 +1,7 @@
+const axios = require('axios');
+// import config from "./server-config.json";
+
+
 export const readConfigInfo = () => {
   // const thisConfig = config;
 
@@ -5,15 +9,27 @@ export const readConfigInfo = () => {
 
   // console.log('thisConfig', thisConfig);
 
+  axios.get('server-config.json')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+    console.log(error);
+
+  });
 
 
-  fetch('/server-config.json').then(function (response) {
-    console.log(response.json())
-    }).then(function (json) {
-      console.log('parsed json', json)
-    }).catch(function (ex) {
-      console.log('parsing failed', ex)
-    })
+  // fetch('/server-config.json').then(function (response) {
+  //   console.log(response.json())
+  //   }).then(function (json) {
+  //     console.log('parsed json', json)
+  //   }).catch(function (ex) {
+  //     console.log('parsing failed', ex)
+  //   })
 
   // return thisConfig;
 }
