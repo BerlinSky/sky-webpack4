@@ -1,20 +1,35 @@
 // import config from "./server-config";
-// import config  from './server-config.json';
+import thisConfig  from './server-config.json';
 
-var { config } = require('./server-config.json');
+// var { config } = require('./server-config.json');
+const axios = require('axios');
 
 export const readConfigInfo = () => {
-  const thisConfig = config;
+  // const thisConfig = config;
 
-  console.log('config', config);
+  // console.log('config', config);
 
-  console.log('thisConfig', thisConfig);
-
+  // console.log('thisConfig', thisConfig);
+  // let thisConfig;
+  axios.get('/user', {
+    params: {
+      ID: 12345
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
 
   fetch('/server-config.json').then(response => {
     response.json().then(json => {
-      const data = json;
-      console.log("data", data);
+      thisConfig = json;
+      console.log("thisConfig", thisConfig);
     });
   });
 
