@@ -2,3 +2,46 @@
 @import "layout/all-layouts";
 @import "modules/all-modules";
 @import "state/all-states";
+
+.tableContainer {
+  width: 100%;
+  padding: 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  table {
+    background-color: tomato;
+    thead {
+      th {
+        padding: 10px;
+        border: 1px solid;
+      }
+    }
+    th, tr {
+      cursor: pointer;
+      td {
+        padding: 10px;
+        border: 1px solid;
+      }
+    }
+  }
+
+  .selected {
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  button {
+    margin-top: 10px;
+    background-color: #eee;
+    border: 2px solid #00f;
+    color: #17bb1c;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+  }
+}
