@@ -13,7 +13,7 @@ const headRow = `
 
 const buildRow = (allRows, row) => {
   const rowElem = `
-    <tr>
+    <tr draggable="true">
       <td>${row.id}</td>
       <td>${row.first}</td>
       <td>${row.last}</td>
@@ -24,5 +24,5 @@ const buildRow = (allRows, row) => {
   allRows = allRows + rowElem;
   return allRows;
 }
-
+ 
 export const menuRows = menuItems.reduce(buildRow, headRow)
