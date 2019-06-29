@@ -1,4 +1,4 @@
-import { menuTbody } from "./component/menu-table/menu-tbody";
+import { menuRows } from "./component/menu-table/menu-tbody";
 
 let index; // variable to set the selected row index
 
@@ -55,9 +55,10 @@ setupButtons()
 
 // 3. insert table body with data rows
 
-const insertTBody = (tBody) => {
+const insertTBody = (rowElems) => {
   const table = document.getElementById("table");
-  table.appendChild(tBody);
+  table.innerHTML = ""
+  table.innerHTML = rowElems
 }
 
-insertTBody(menuTbody)
+insertTBody(menuRows)
