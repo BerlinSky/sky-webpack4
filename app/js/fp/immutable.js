@@ -1,8 +1,17 @@
-const push = value => array => {
+export const immutablePush = value => array => {
   const clone = [...array]
 
   clone.push(value)
   return clone
 }
 
-export default push
+export class immutableContainer {
+  constructor(content, value) {
+    this.content = content
+    this.value = value
+  }
+
+  adjustValue(value) {
+    return new immutableContainer(this.content, value)
+  }
+}
