@@ -49,16 +49,15 @@ const setupButtons = () => {
  buttonDown.addEventListener('click', moveDown);
 }
 
-
 getSelectedRow()
 setupButtons()
 
 // 3. insert table body with data rows
 
-const insertTBody = (rowElems) => {
+const addDataRows = (rowElems) => {
   const table = document.getElementById("table");
   table.innerHTML = ""
   table.innerHTML = rowElems
 }
 
-insertTBody(menuRows)
+addDataRows(menuRows)
