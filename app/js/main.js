@@ -45,4 +45,29 @@ const addDataRowEventListner = () => {
   }
 }
 
+const saveChange = () => {
+  console.log("save button clicked");
+}
+
+const addButtonEventListner = () => {
+  const elem = document.getElementById("save");
+  elem.addEventListener("click", saveChange);
+}
+
 addDataRowEventListner()
+addButtonEventListner()
+
+const obj_1 = {
+  a: "001",
+  b: "abc",
+  c: "xyz",
+  order: 1
+}
+
+const obj_2 = {
+  a: "001",
+  order: 2
+}
+
+const obj_3 = Object.assign({}, obj_1, obj_2);
+console.log("obj_3", obj_3);
