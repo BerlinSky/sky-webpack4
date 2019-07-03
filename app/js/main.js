@@ -1,5 +1,5 @@
 import { menuRows } from "./component/menu-table/menu-tbody";
-
+import { menuItems } from "./component/menu-table/menu-data";
 
 // 3. insert table body with data rows
 const addDataRows = (rowElems) => {
@@ -45,8 +45,28 @@ const addDataRowEventListner = () => {
   }
 }
 
+const getRowData = () => {
+  const table = document.getElementById("table");
+  const rows = table.querySelectorAll("tr[id]");
+
+  const rowData = [...rows].map((row) => ({
+    "id": row.id,
+    "order": row.rowIndex
+  }));
+
+  return rowData;;
+}
+
+const refreshMenuData = () => {
+  const orginalMenuItems = menuItems;
+  const currentMenuItems =  getRowData();
+  const menuItemsUpdated = Object.assign([], orginalMenuItems, currentMenuItems);
+
+  console.log("menuItemsUpdated", menuItemsUpdated);
+}
+
 const saveChange = () => {
-  console.log("save button clicked");
+  refreshMenuData();
 }
 
 const addButtonEventListner = () => {
@@ -57,17 +77,3 @@ const addButtonEventListner = () => {
 addDataRowEventListner()
 addButtonEventListner()
 
-const obj_1 = {
-  a: "001",
-  b: "abc",
-  c: "xyz",
-  order: 1
-}
-
-const obj_2 = {
-  a: "001",
-  order: 2
-}
-
-const obj_3 = Object.assign({}, obj_1, obj_2);
-console.log("obj_3", obj_3);
