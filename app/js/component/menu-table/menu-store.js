@@ -2,7 +2,9 @@ import { createStore } from "redux";
 
 import { menuItems } from "./menu-data"
 
-function menuStore(state = menuItems, action) {
+function menuList(state = menuItems, action) {
+  console.log("action type", action.type);
+
   if (action.type === "SAVE_CHANGE" ) {
     return state + "???";
   }
@@ -10,4 +12,4 @@ function menuStore(state = menuItems, action) {
   return state;
 }
 
-export const store = createStore(menuStore);
+export const menuStore = createStore(menuList);

@@ -1,4 +1,5 @@
 import { menuItems } from "./menu-data";
+import { menuStore } from "./menu-store";
 
 // 3. insert table body with data rows
 const addDataRows = (rowElems) => {
@@ -74,6 +75,8 @@ const refreshMenuData = () => {
 
 const saveChange = () => {
   refreshMenuData();
+
+  menuStore.dispatch({ type: "TRY_THIS_TYPE"});
 }
 
 export  const paintTable = (menuRows) => {
