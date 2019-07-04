@@ -57,10 +57,17 @@ const getRowData = () => {
   return rowData;;
 }
 
+const findMenuItem = (menuItems, menuId) => {
+  return menuItems.find(item => item.id === menuId)
+}
+
 const refreshMenuData = () => {
   const orginalMenuItems = menuItems;
   const currentMenuItems =  getRowData();
-  const menuItemsUpdated = Object.assign([], orginalMenuItems, currentMenuItems);
+
+  const menuItemsUpdated = orginalMenuItems.map((item) => {
+    return Object.assign({}, item, findMenuItem(currentMenuItems, item.id))
+  })
 
   console.log("menuItemsUpdated", menuItemsUpdated);
 }
