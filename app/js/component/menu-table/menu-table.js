@@ -76,8 +76,13 @@ const refreshMenuData = () => {
 const saveChange = () => {
   refreshMenuData();
 
-  menuStore.dispatch({ type: "TRY_THIS_TYPE"});
+  menuStore.dispatch({ type: "SAVE_CHANGE"});
 }
+
+menuStore.subscribe(() => {
+  const currentMenuItems = menuStore.getState();
+  console.log("currentMenuItems", currentMenuItems);
+})
 
 export  const paintTable = (menuRows) => {
   addDataRows(menuRows)
