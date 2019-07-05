@@ -1,5 +1,5 @@
 import { menuItems } from "./menu-data";
-import { menuStore } from "./menu-store";
+import { menuStore } from "./MenuStore/menu-store";
 
 // 3. insert table body with data rows
 const addDataRows = (rowElems) => {

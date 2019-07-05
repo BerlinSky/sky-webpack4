@@ -1,10 +1,9 @@
 import { createStore } from "redux";
-import { menuItems } from "./menu-data"
 
-function menuList(state = menuItems, action) {
+function menuList(state = { }, action) {
   console.log("action type", action.type);
 
-  if (action.type === "SAVE_CHANGE" ) {
+  if (action.type === "SAVE_CHANGE") {
     return state.concat([{ test: true }])
   }
 

@@ -1,0 +1,3 @@
+export const SAVE_CHANGE = 'SAVE_CHANGE';
+export const CANCEL_CHANGE = 'CANCEL_CHANGE';
+export const REST_MENULIST = 'REST_MENULIST';
