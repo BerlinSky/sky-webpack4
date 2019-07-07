@@ -1,9 +1,6 @@
 import { homePage } from "./components/TinyRouter/home"
 import { noAccessPage } from "./components/TinyRouter/no-access"
-
-const userProfile = {
-  "access": true
-}
+import { userProfile } from "./components/TinyRouter/user-profile";
 
 const contentDiv = document.getElementById('content');
 

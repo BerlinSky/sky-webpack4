@@ -1,14 +1,12 @@
 import styles from "./app.module.scss";
+import { formInput } from "./Forms/input-form";
+import { additionalInfo } from "./Forms/additional-input";
 
 export const homePage = () => {
   return `
   <div class=${styles.home}>
-    <div class=${styles.infoForm}>
-      <h3>Info Form</h3>
-    </div>
-    <div class=${styles.additionalInfo}>
-      <h3>Additional Info</h3>
-    </div>
+    ${formInput}
+    ${additionalInfo}
   </div>
   `
 }
