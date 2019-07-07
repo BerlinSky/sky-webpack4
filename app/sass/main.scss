@@ -6,16 +6,16 @@ body {
 
 .l-siteContainer {
   min-height: 100vh;
+  flex: 1;
 
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  background-color: lightyellow;
 
-  & > * {
-    flex:1 1 auto;
+  .l-mainContent {
+    flex: 1;
   }
-}
 
-.l-siteContainer {
   header {
     background-color: lightgreen;
     max-height: 75px;
@@ -26,64 +26,5 @@ body {
     max-height: 65px;
   }
 
-  flex: 1;
-
-	display: flex;
-	flex-direction: column;
-
-  & > * {
-    flex:1 1 auto;
-  }
 }
 
-.l-mainContent {
-  overflow-x: hidden;
-}
-
-.tableContainer {
-  width: 100%;
-  padding: 50px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    background-color: tomato;
-    thead {
-      th {
-        padding: 10px;
-        border: 1px solid;
-      }
-    }
-    th, tr {
-      cursor: pointer;
-      td {
-        padding: 10px;
-        border: 1px solid;
-      }
-    }
-
-    tr:first-child {background: #93d428}
-    tr:nth-child(2n+3) {background: #CCC}
-    // tr:nth-child(even) {background: #CCC}
-    // tr:nth-child(odd) {background: #FFF}
-  }
-
-  .selected {
-    background-color: red;
-    color: #fff;
-    font-weight: bold;
-  }
-
-  button {
-    margin-top: 15px;
-    background-color: #93d428;
-    color: #000000;
-    font-size: 24px;
-    cursor: pointer;
-  }
-}
