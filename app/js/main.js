@@ -1,37 +1,22 @@
 import { homePage } from "./components/TinyRouter/home"
-import { clients } from "./components/TinyRouter/clients"
+import { noAccessPage } from "./components/TinyRouter/no-access"
+
+const userProfile = {
+  "access": true
+}
 
 const contentDiv = document.getElementById('content');
 
-// const home = `
-//   <h3>Home Page</h4>
-//  `
-
-const services = () => {`
-  <h3>Home Page</h4>
- `
+function home() {
+  contentDiv.innerHTML = homePage();
 }
 
-const help = () => {`
-  <h3>Home Page</h4>
- `
+function noAccess() {
+  contentDiv.innerHTML = noAccessPage();
 }
 
-const routes = {
-  '/': homePage(),
-  '/home': homePage(),
-  '/clients': clients,
-  '/services': services,
-  '/help': help,
-};
-
-window.onpopstate = () => {
-  contentDiv.innerHTML = routes[window.location.pathname];
+const loadLandingPage = (profile) => {
+  profile.access ? home() : noAccess();
 }
 
-// const onNavItemClick = (pathName) => {
-//   window.history.pushState({}, pathName, window.location.origin + pathName);
-//   contentDiv.innerHTML = routes[pathName];
-// }
-
-contentDiv.innerHTML = routes[window.location.pathname];
+document.addEventListener("DOMContentLoaded",  loadLandingPage(userProfile))
