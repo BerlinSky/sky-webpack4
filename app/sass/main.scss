@@ -16,7 +16,17 @@ body {
 }
 
 .l-siteContainer {
-  min-height: 100vh;
+  header {
+    background-color: lightgreen;
+    max-height: 75px;
+  }
+
+  footer {
+    background-color: lightgreen;
+    max-height: 65px;
+  }
+
+  flex: 1;
 
 	display: flex;
 	flex-direction: column;
