@@ -1,6 +1,8 @@
+import styles from "./app.module.scss";
+
 export const homePage = () => {
   return `
-    <h3>This is the place holder for the home page</h3>
+    <h3 class=${styles.home}>This is the place holder for the home page</h3>
   `
-}  
+}
 

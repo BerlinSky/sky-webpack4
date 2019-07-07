@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 // const nodeExternals = require('webpack-node-externals');
-
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
@@ -59,12 +58,41 @@ const jsonRules = {
 
 const sassRules = {
   test: /\.scss$/,
-  exclude: /node_modules/,
+  exclude: [/node_modules/, /\.module.(s(a|c)ss)$/],
   use: [
     MiniCssExtractPlugin.loader,
     {
       loader: "css-loader",
       options: {
+        sourceMap: true
+      }
+    },
+    {
+      loader: "postcss-loader",
+      options: {
+        sourceMap: 'inline'
+      }
+    },
+    {
+      loader: "sass-loader",
+      options: {
+        sourceMap: true
+      }
+    }
+  ]
+}
+
+const sassModuleRules = {
+  test: /\.module\.s(a|c)ss$/,
+  exclude: [/node_modules/],
+  use: [
+    MiniCssExtractPlugin.loader,
+    {
+      loader: "css-loader",
+      options: {
+        modules: true,
+        localIdentName: '[name]__[local]___[hash:base64:5]',
+        camelCase: true,
         sourceMap: true
       }
     },
@@ -145,6 +173,7 @@ module.exports = {
       jsRules,
       jsonRules,
       sassRules,
+      sassModuleRules,
       htmlRules,
       fontRules,
       imageRules
