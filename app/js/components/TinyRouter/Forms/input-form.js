@@ -70,63 +70,31 @@ const formInputCompMap = [
   }
 ];
 
-function findEntitledComponent(compId) {
-  return userProfile.components.find(((id) => id === compId));
-}
+// function findEntitledComponent(compId) {
+//   return userProfile.components.find(((id) => id === compId));
+// }
 
-const renderedComponents = formInputCompMap.reduce((html, comp) => {
-  if (findEntitledComponent(comp.id)) {
-    html + comp.composer
-  }
-  else {
-    html + "<br></br>"
-  }
-}, "");
+// const renderedComponents = formInputCompMap.reduce((html, comp) => {
+//   if (findEntitledComponent(comp.id)) {
+//     html + comp.composer
+//   }
+//   else {
+//     html + "<br></br>"
+//   }
+// }, "");
 
-// const renderedComponents = userProfile.components.map((compId) => {
-//   console.log(formInputCompMap, compId);
-
-//   const newlist = [];
-
-//   return formInputCompMap.reduce((thisList, comp) => {
-//     if (comp.id === compId) {
-//       thisList.push(comp.composer)
-//     }
-//   }, newlist);
-// });
-
-// }, []).reduce((html , item) => html + item, "");
+const renderedComponents = userProfile.components.map((compId) => {
+  const item = formInputCompMap.find((comp) => comp.id === compId)
+  return (item) ? item.composer : "";
+}).reduce((html, item) => html + item, "");
 
 export const formInput = `
   <div class=${styles.infoForm}>
     <h3>Info Form</h3>
-    ${renderedComponents}
     <form>
       <ul class="${styles.formWrapper}">
-        <li class="${styles.formRow}">
-          <label for="firsName">First Name</label>
-          <input type="text" id="firsName">
-        </li>
-        <li class="${styles.formRow}">
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName">
-        </li>
-        <li class="${styles.formRow}">
-          <label for="businessName">Business Name</label>
-          <input type="text" id="businessName">
-        </li>
-        <li class="${styles.formRow}">
-          <label for="clientId">Client ID</label>
-          <input type="text" id="clientId">
-        </li>
-        <li class="${styles.formRow}">
-          <label for="taxId">Tax ID</label>
-          <input type="text" id="taxId">
-        </li>
-        <li class="${styles.formRow}">
-          <label for="email">Email Address</label>
-          <input type="email" id="email">
-        </li>
+        ${renderedComponents}
+
         <li class="${styles.formRow}">
           <button type="submit">Submit</button>
         </li>
