@@ -1,33 +1,7 @@
 import styles from "./form.module.scss";
+import { userProfile } from "../user-profile";
 
-export const homeFormCompMap = [
-  {
-    "id": "1010",
-    "composer": firstName
-  },
-  {
-    "id": "2020",
-    "composer": lastName
-  },
-  {
-    "id": "2030",
-    "composer": businessName
-  },
-  {
-    "id": "2040",
-    "composer": clientId
-  },
-  {
-    "id": "2050",
-    "composer": taxId
-  },
-  {
-    "id": "2060",
-    "composer": email
-  }
-];
-
-export const firstName = `
+const firstName = `
   <li class="${styles.formRow}">
     <label for="firsName">First Name</label>
     <input type="text" id="firsName">
@@ -69,10 +43,64 @@ export const email = `
   </li>
 `;
 
+const formInputCompMap = [
+  {
+    "id": "1010",
+    "composer": firstName
+  },
+  {
+    "id": "1020",
+    "composer": lastName
+  },
+  {
+    "id": "1030",
+    "composer": businessName
+  },
+  {
+    "id": "1040",
+    "composer": clientId
+  },
+  {
+    "id": "1050",
+    "composer": taxId
+  },
+  {
+    "id": "1060",
+    "composer": email
+  }
+];
+
+function findEntitledComponent(compId) {
+  return userProfile.components.find(((id) => id === compId));
+}
+
+const renderedComponents = formInputCompMap.reduce((html, comp) => {
+  if (findEntitledComponent(comp.id)) {
+    html + comp.composer
+  }
+  else {
+    html + "<br></br>"
+  }
+}, "");
+
+// const renderedComponents = userProfile.components.map((compId) => {
+//   console.log(formInputCompMap, compId);
+
+//   const newlist = [];
+
+//   return formInputCompMap.reduce((thisList, comp) => {
+//     if (comp.id === compId) {
+//       thisList.push(comp.composer)
+//     }
+//   }, newlist);
+// });
+
+// }, []).reduce((html , item) => html + item, "");
+
 export const formInput = `
   <div class=${styles.infoForm}>
     <h3>Info Form</h3>
-
+    ${renderedComponents}
     <form>
       <ul class="${styles.formWrapper}">
         <li class="${styles.formRow}">
@@ -106,3 +134,4 @@ export const formInput = `
     </form>
   </div>
 `
+

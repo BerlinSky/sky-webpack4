@@ -15,8 +15,13 @@ const homeCompMap = [
 ];
 
 const renderedComponents = userProfile.components.map((compId) => {
-  const item = homeCompMap.find((comp) => comp.id === compId)
-  return item.composer;
+  if (compId === "1000" || compId === "2000" ) {
+    const item = homeCompMap.find((comp) => comp.id === compId)
+    return item.composer;
+  }
+  else {
+    return "";
+  }
 }).reduce((html , item) => html + item, "");
 
 export const homePage = () => {
