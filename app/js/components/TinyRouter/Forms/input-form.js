@@ -8,6 +8,22 @@ export const homeFormCompMap = [
   {
     "id": "2020",
     "composer": lastName
+  },
+  {
+    "id": "2030",
+    "composer": businessName
+  },
+  {
+    "id": "2040",
+    "composer": clientId
+  },
+  {
+    "id": "2050",
+    "composer": taxId
+  },
+  {
+    "id": "2060",
+    "composer": email
   }
 ];
 
