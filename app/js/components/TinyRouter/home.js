@@ -21,11 +21,7 @@ const homeCompMap = [{
 
 const renderedComponents = userProfile.components.map((compId) => {
   const item = homeCompMap.find((comp) => comp.id === compId)
-  if (item) {
-    return item.composer;
-  } else {
-    return "";
-  }
+  return (item) ? item.composer : "";
 }).reduce((html, item) => html + item, "");
 
 export const homePage = () => {
