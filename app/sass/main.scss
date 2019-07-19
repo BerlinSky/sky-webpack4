@@ -26,6 +26,43 @@ body {
     background-color: lightgreen;
     max-height: 65px;
   }
+}
 
+@keyframes spinningWheel {
+  0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+       transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+.progressWheel {
+  animation-play-state: running;
+  position: relative;
+  height: 100vh;
+  opacity: 1;
+
+  &::before {
+    animation: 1.5s linear infinite spinningWheel;
+    animation-play-state: inherit;
+    border: solid 7px lightgreen;
+    border-bottom-color:tomato;
+    border-radius: 50%;
+    content: "";
+    height: 50px;
+    width: 50px;
+    left: 50%;
+    top: 50%;
+    opacity: inherit;
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    will-change: transform;
+  }
+
+  --done {
+    opacity: 0;
+    transition: opacity linear 0.1s;
+  }
 }
 
