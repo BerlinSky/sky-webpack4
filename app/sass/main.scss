@@ -50,11 +50,11 @@ body {
   justify-content: center;
   align-items: center;
 
+  &.close {
+    display: none;
+  }
 }
 
-.lightboxContainer.close {
-  display: none;
-}
 
 .widgetContainer {
   background-color: tomato;
