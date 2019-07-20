@@ -1,6 +1,12 @@
 
-// const contentDiv = document.getElementById('content');
+const closeWidget = () => {
+  const elem = document.getElementById('lightboxModal');
+  elem.classList.add("close");
+}
 
+const initWidget = () => {
+  const elem = document.getElementById('widgetCancelButton');
+  elem.addEventListener("click", closeWidget);
+}
 
-
-// document.addEventListener("DOMContentLoaded",  loadLandingPage(userProfile))
+initWidget();
