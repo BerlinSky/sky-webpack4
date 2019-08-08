@@ -33,7 +33,10 @@ const toggleChecked = (event) => {
   event.preventDefault();
 
   const elem = event.target;
-  console.log("toggle check is called.", elem);
+  // const icon = elem.querySelector("icon");
+  // const icon = elem.getElementsByTagName("SPAN");[0]
+  console.log("toggle check is called.", elem, elem.children);
+  // icon.classList.add("unchecked");
 
 }
 
