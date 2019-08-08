@@ -54,6 +54,27 @@ body {
       td {
         padding: 10px;
         border: 1px solid;
+
+        .icon {
+          display: flex;
+          justify-content: center;
+          // display: inline-block;
+          font-style: normal;
+          // font-variant: normal;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          color: #eee;
+        }
+
+        .check::before {
+          content: "\f00c";
+          font-family: 'FontAwesome';
+        }
+
+        .uncheck::before {
+          content: "\f00d";
+          font-family: 'FontAwesome';
+        }
       }
     }
 

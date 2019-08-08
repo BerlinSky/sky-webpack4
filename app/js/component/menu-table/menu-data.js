@@ -2,7 +2,7 @@
 
 export const menuItems = [{
     "id": "101",
-    "icon": "101",
+    "icon": "",
     "first": "Ann",
     "last": "Marie",
     "age": 49,
@@ -10,7 +10,7 @@ export const menuItems = [{
   },
   {
     "id": "102",
-    "icon": "102",
+    "icon": "",
     "id": "102",
     "first": "John",
     "last": "Smith",
@@ -19,7 +19,7 @@ export const menuItems = [{
   },
   {
     "id": "103",
-    "icon": "103",
+    "icon": "",
     "first": "Wendy",
     "last": "Carter",
     "age": 29,
@@ -27,7 +27,7 @@ export const menuItems = [{
   },
   {
     "id": "104",
-    "icon": "104",
+    "icon": "",
     "first": "Mark",
     "last": "Anthony",
     "age": 59,
@@ -35,7 +35,7 @@ export const menuItems = [{
   },
   {
     "id": "105",
-    "icon": "105",
+    "icon": "",
     "first": "Lara",
     "last": "Bauhauser",
     "age": 79,

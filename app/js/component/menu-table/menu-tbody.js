@@ -15,7 +15,7 @@ const headRow = `
 const buildRow = (allRows, row) => {
   const rowElem = `
     <tr draggable="true" id=${row.id}>
-      <td>${row.icon}</td>
+      <td><span class="icon check">${row.icon}</span></td>
       <td>${row.id}</td>
       <td>${row.first}</td>
       <td>${row.last}</td>
