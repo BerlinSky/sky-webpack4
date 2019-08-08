@@ -29,15 +29,27 @@ function dragOverTheRow(event) {
   event.preventDefault();
 }
 
+const toggleChecked = (event) => {
+  event.preventDefault();
+
+  const elem = event.target;
+  console.log("toggle check is called.", elem);
+
+}
+
 const addDataRowEventListner = () => {
   const table = document.getElementById("table");
   const rows = table.rows;
 
   // Need to refactor it for the FP style
   for (var i = 1; i < rows.length; i++) {
-    rows[i].addEventListener('dragstart', startToDragRow);
-    rows[i].addEventListener('drop', dropToTheRow);
-    rows[i].addEventListener('dragover', dragOverTheRow);
+    const thisRow = rows[i];
+    thisRow.addEventListener('dragstart', startToDragRow);
+    thisRow.addEventListener('drop', dropToTheRow);
+    thisRow.addEventListener('dragover', dragOverTheRow);
+
+    const thisCol = thisRow.getElementsByClassName("js-check")[0];
+    thisCol.addEventListener('click', toggleChecked);
   }
 }
 
