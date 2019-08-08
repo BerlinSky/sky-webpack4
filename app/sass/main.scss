@@ -68,12 +68,12 @@ body {
           color: #eee;
         }
 
-        .check::before {
+        .checked::before {
           content: "\f00c";
           font-family: 'FontAwesome';
         }
 
-        .uncheck::before {
+        .unchecked::before {
           content: "\f00d";
           font-family: 'FontAwesome';
         }

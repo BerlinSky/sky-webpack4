@@ -4,7 +4,7 @@ import { menuItems } from "./menu-data"
 
 const headRow = `
   <tr>
-    <td>icon</td>
+    <td>check</td>
     <td>ID</td>
     <td>First Name</td>
     <td>Last Name</td>
@@ -15,7 +15,7 @@ const headRow = `
 const buildRow = (allRows, row) => {
   const rowElem = `
     <tr draggable="true" id=${row.id}>
-      <td><span class="icon check">${row.icon}</span></td>
+      <td class="js-check"><span class="icon checked">${row.icon}</span></td>
       <td>${row.id}</td>
       <td>${row.first}</td>
       <td>${row.last}</td>
