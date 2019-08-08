@@ -32,12 +32,9 @@ function dragOverTheRow(event) {
 const toggleChecked = (event) => {
   event.preventDefault();
 
-  const elem = event.target;
-  // const icon = elem.querySelector("icon");
-  // const icon = elem.getElementsByTagName("SPAN");[0]
-  console.log("toggle check is called.", elem, elem.children);
-  // icon.classList.add("unchecked");
-
+  const elem = event.currentTarget;
+  const icon = elem.children[0];
+  icon.classList.toggle("unchecked");
 }
 
 const addDataRowEventListner = () => {
