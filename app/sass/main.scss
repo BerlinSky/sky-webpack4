@@ -4,9 +4,13 @@ body {
   line-height: 1;
 }
 
- :global .test {
-    color: red;
-  }
+:global .test {
+  color: red;
+}
+
+:local(.test2) {
+  color: green;
+}
 
 .l-siteContainer {
   min-height: 100vh;
@@ -16,7 +20,7 @@ body {
   flex-direction: column;
   background-color: lightyellow;
 
-  .l-mainContent {
+ .l-mainContent {
     flex: 1;
   }
 
@@ -29,6 +33,5 @@ body {
     background-color: lightgreen;
     max-height: 65px;
   }
-
 }
 

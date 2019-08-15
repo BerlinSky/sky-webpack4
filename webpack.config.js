@@ -96,7 +96,7 @@ const sassModuleRules = {
         sourceMap: true
       }
     },
-    { 
+    {
       loader: "postcss-loader",
       options: {
         sourceMap: 'inline',
