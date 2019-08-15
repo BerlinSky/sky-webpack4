@@ -86,20 +86,20 @@ const sassModuleRules = {
   test: /\.module\.s(a|c)ss$/,
   exclude: [/node_modules/],
   use: [
-    MiniCssExtractPlugin.loader,
+    // MiniCssExtractPlugin.loader,
     {
       loader: "css-loader",
       options: {
         modules: true,
-        localIdentName: '[name]__[local]___[hash:base64:5]',
-        camelCase: true,
+        // localIdentName: '[name]__[local]___[hash:base64:5]',
+        // camelCase: true,
         sourceMap: true
       }
     },
-    {
+    { 
       loader: "postcss-loader",
       options: {
-        sourceMap: 'inline'
+        sourceMap: 'inline',
       }
     },
     {

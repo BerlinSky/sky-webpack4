@@ -4,6 +4,10 @@ body {
   line-height: 1;
 }
 
+ :global .test {
+    color: red;
+  }
+
 .l-siteContainer {
   min-height: 100vh;
   flex: 1;
